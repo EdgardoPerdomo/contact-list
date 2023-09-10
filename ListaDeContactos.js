@@ -64,4 +64,31 @@ function mostrar(){
     console.log(listContactos);
 }
 
+
+//bonus Añade una funcion que permita actualizar un contacto
+
+function actualizarContacto (idA, nombresA, apellidosA, telefonoA, departamentoA, municipioA){
+    const listActualizada = [];
+    for (let i = 0; i < listContactos.length; i++ ){
+        if(listContactos[i].id === idA){
+        const contactoEditado = {
+        id: listContactos[i].id,
+        nombres: nombresA,
+        apellido: apellidosA,
+        telefono: telefonoA,
+        ubicaciones: [{
+            departamento: departamentoA,
+            municipio: municipioA
+        }]
+    }
+        listActualizada.push(contactoEditado);
+    }else{
+            listActualizada.push(listContactos[i]);
+        };
+    }
+    listContactos = listActualizada;
+    return(listContactos);
+}
+actualizarContacto(4, "Sahily Adhara", "Perdomo", 12345678, "Sinuapa", "Ocotepeque");
+
 mostrar();
